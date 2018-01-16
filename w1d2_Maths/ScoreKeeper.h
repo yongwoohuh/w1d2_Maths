@@ -13,6 +13,6 @@
 @property NSInteger numRight;
 @property NSInteger numWrong;
 
-- (void)showScore;
+- (NSString *)showScore;
 
 @end

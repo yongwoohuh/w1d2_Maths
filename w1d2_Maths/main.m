@@ -27,11 +27,11 @@ int main(int argc, const char * argv[]) {
             } else if ( [result integerValue] == game1.answer) {
                 NSLog(@"Right!");
                 [s1 setNumRight: s1.numRight + 1];
-                [s1 showScore];
+                NSLog(@"%@", s1.showScore);
             } else if ( [result integerValue] != game1.answer){
                 NSLog(@"Wrong!");
                 [s1 setNumWrong:s1.numWrong + 1];
-                [s1 showScore];
+                NSLog(@"%@", s1.showScore);
             }
         }
     }

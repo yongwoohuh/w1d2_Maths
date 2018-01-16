@@ -20,9 +20,10 @@
     return self;
 }
 
-- (void)showScore
+- (NSString *)showScore
 {
-    NSLog(@"score: %ld right, %ld wrong --- %.2f %%", self.numRight, self.numWrong,
-          (float)self.numRight / (float)(self.numRight + self.numWrong) * 100.0 );
+    return [NSString stringWithFormat:
+            @"score: %ld right, %ld wrong --- %.2f %%",self.numRight, self.numWrong,
+            (float)self.numRight / (float)(self.numRight + self.numWrong) * 100.0];
 }
 @end
