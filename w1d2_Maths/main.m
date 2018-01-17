@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
-#import "QuestionManger.h"
+#import "QuestionManager.h"
 
 
 int main(int argc, const char * argv[]) {
@@ -18,12 +18,12 @@ int main(int argc, const char * argv[]) {
         
         BOOL gameOn = YES;
         ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
-        QuestionManger *questionManger = [[QuestionManger alloc] init];
+        QuestionManager *questionManager = [[QuestionManager alloc] init];
         
         NSLog(@"MATHS!");
         while(gameOn) {
-            AdditionQuestion *question = [[AdditionQuestion alloc] init];
-            [questionManger.questions addObject:question];
+            Question *question = [[Question alloc] init];
+            [questionManager.questions addObject:question];
             NSString *result = [InputHandler getUserInput];
             if([result isEqualToString:@"quit"]) {
                 gameOn = NO;
@@ -39,7 +39,7 @@ int main(int argc, const char * argv[]) {
                 [scoreKeeper setNumWrong:scoreKeeper.numWrong + 1];
                 NSLog(@"%@", scoreKeeper.showScore);
             }
-            NSLog(@"%@",[questionManger timeOutput]);
+            NSLog(@"%@",[questionManager timeOutput]);
         }
     }
     

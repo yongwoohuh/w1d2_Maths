@@ -1,5 +1,5 @@
 //
-//  AdditionQuestion.h
+//  Question.h
 //  w1d2_Maths
 //
 //  Created by Yongwoo Huh on 1/16/18.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AdditionQuestion : NSObject
+@interface Question : NSObject
 
 @property (nonatomic, strong) NSString *question;
 @property (nonatomic) NSInteger answer;

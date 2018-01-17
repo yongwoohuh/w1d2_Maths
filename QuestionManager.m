@@ -1,14 +1,14 @@
 //
-//  QuestionManger.m
+//  QuestionManager.m
 //  w1d2_Maths
 //
 //  Created by Yongwoo Huh on 1/17/18.
 //  Copyright © 2018 YongwooHuh. All rights reserved.
 //
 
-#import "QuestionManger.h"
+#import "QuestionManager.h"
 
-@implementation QuestionManger
+@implementation QuestionManager
 
 - (instancetype)init
 {
@@ -24,7 +24,7 @@
     NSTimeInterval totalTime = 0;
     NSTimeInterval averageTime = 0;
     
-    for (AdditionQuestion *question in self.questions) {
+    for (Question *question in self.questions) {
         totalTime += question.answerTime;
     }
     averageTime = totalTime / [self.questions count];

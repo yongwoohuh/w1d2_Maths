@@ -1,14 +1,14 @@
 //
-//  AdditionQuestion.m
+//  Question.m
 //  w1d2_Maths
 //
 //  Created by Yongwoo Huh on 1/16/18.
 //  Copyright © 2018 YongwooHuh. All rights reserved.
 //
 
-#import "AdditionQuestion.h"
+#import "Question.h"
 
-@implementation AdditionQuestion
+@implementation Question
 
 - (instancetype)init
 {
