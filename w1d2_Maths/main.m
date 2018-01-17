@@ -11,20 +11,25 @@
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
 #import "QuestionManager.h"
+#import "QuestionFactory.h"
 
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         BOOL gameOn = YES;
-        ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
-        QuestionManager *questionManager = [[QuestionManager alloc] init];
-        
         NSLog(@"MATHS!");
+        ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
+        InputHandler *inputHandler = [[InputHandler alloc] init];
+        QuestionManager *questionManager = [[QuestionManager alloc] init];
+        QuestionFactory *questionFactory = [[QuestionFactory alloc] init];
+        
+        
         while(gameOn) {
-            Question *question = [[Question alloc] init];
+            Question *question = [questionFactory generateRandomQuestion];
+            NSLog(@"%@", question.question);
             [questionManager.questions addObject:question];
-            NSString *result = [InputHandler getUserInput];
+            NSString *result = [inputHandler getUserInput];
             if([result isEqualToString:@"quit"]) {
                 gameOn = NO;
                 continue;
