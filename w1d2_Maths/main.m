@@ -10,29 +10,36 @@
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManger.h"
 
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         BOOL gameOn = YES;
-        ScoreKeeper *s1 = [[ScoreKeeper alloc] init];
+        ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
+        QuestionManger *questionManger = [[QuestionManger alloc] init];
         
         NSLog(@"MATHS!");
         while(gameOn) {
-            AdditionQuestion *game1 = [[AdditionQuestion alloc] init];
+            AdditionQuestion *question = [[AdditionQuestion alloc] init];
+            [questionManger.questions addObject:question];
             NSString *result = [InputHandler getUserInput];
-            if([result isEqualToString:@"q"]) {
+            if([result isEqualToString:@"quit"]) {
                 gameOn = NO;
-            } else if ( [result integerValue] == game1.answer) {
-                NSLog(@"Right!");
-                [s1 setNumRight: s1.numRight + 1];
-                NSLog(@"%@", s1.showScore);
-            } else if ( [result integerValue] != game1.answer){
-                NSLog(@"Wrong!");
-                [s1 setNumWrong:s1.numWrong + 1];
-                NSLog(@"%@", s1.showScore);
+                continue;
             }
+            
+            if ( [result integerValue] == question.answer) {
+                NSLog(@"Right!");
+                [scoreKeeper setNumRight: scoreKeeper.numRight + 1];
+                NSLog(@"%@", scoreKeeper.showScore);
+            } else {
+                NSLog(@"Wrong!");
+                [scoreKeeper setNumWrong:scoreKeeper.numWrong + 1];
+                NSLog(@"%@", scoreKeeper.showScore);
+            }
+            NSLog(@"%@",[questionManger timeOutput]);
         }
     }
     

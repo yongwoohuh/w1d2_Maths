@@ -13,4 +13,9 @@
 @property (nonatomic, strong) NSString *question;
 @property (nonatomic) NSInteger answer;
 
+@property (nonatomic) NSDate *startTime;
+@property (nonatomic) NSDate *endTime;
+
+- (NSTimeInterval)answerTime;
+
 @end

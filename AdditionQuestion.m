@@ -19,11 +19,25 @@
         NSInteger num2 = arc4random_uniform(91) + 10;
         _answer = num1 + num2;
         
+        _startTime = [NSDate date];
+        
         _question = [NSString stringWithFormat:@"%ld + %ld?", num1, num2];
         NSLog(@"%@", _question);
-        NSLog(@"Enter 'q' to quit");
+        NSLog(@"Enter 'quit' to exit");
     }
     return self;
+}
+
+// overriding getter
+- (NSInteger)answer
+{
+    _endTime = [NSDate date];
+    return _answer;
+}
+
+- (NSTimeInterval)answerTime
+{
+    return [self.endTime timeIntervalSinceDate:self.startTime];
 }
 
 @end
